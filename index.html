@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" data-i18n-attr="content" data-i18n="meta.description"
+        content="VoiceScribe: La mejor extensión de Chrome para Transcripción de Voz a Texto con IA. Transcribe reuniones de Zoom, Google Meet y clases en tiempo real. Resúmenes automáticos gratis.">
+    <meta name="keywords" data-i18n-attr="content" data-i18n="meta.keywords"
+        content="transcripción de voz, speech to text, resumen con IA, notas de reuniones, chrome extension, transcribir zoom, transcribir clases, dictado por voz, gratis">
+    <title data-i18n="meta.title">VoiceScribe - Transcripción IA para Reuniones y Clases | Voz a Texto Gratis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+SC:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="glass-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="ri-mic-ai-line"></i> VoiceScribe
+            </div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="es" title="Español">🇪🇸</button>
+                    <button class="lang-btn" data-lang="en" title="English">🇺🇸</button>
+                    <button class="lang-btn" data-lang="zh" title="中文">🇨🇳</button>
+                </div>
+                <a href="https://chromewebstore.google.com/detail/voice-transcription-+-ai/pcklabcphhbkoghekdbpcplmjbdkfnbi"
+                    target="_blank" class="btn-primary-sm" data-i18n="nav.cta">Añadir a Chrome — Gratis</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="badge-new" data-i18n="hero.badge">✨ Nueva Versión 1.4: La IA más rápida para Chrome</div>
+                <h1><span data-i18n="hero.title">Pierdes el 80% de tus ideas. </span><span class="text-gradient"
+                        data-i18n="hero.titleGradient">Transcríbelas con IA.</span></h1>
+                <p data-i18n-html="hero.subtitle">Captura cada reunión de <strong>Zoom</strong>, clase o conferencia al
+                    instante. <strong>Transcripción en tiempo real</strong> en 12 idiomas y generación de
+                    <strong>resúmenes inteligentes</strong> sin límites.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="https://chromewebstore.google.com/detail/voice-transcription-+-ai/pcklabcphhbkoghekdbpcplmjbdkfnbi"
+                        target="_blank" class="btn-primary-lg">
+                        <i class="ri-chrome-fill"></i> <span data-i18n="hero.cta">Instalar Transcriptor Gratis</span>
+                    </a>
+                    <span class="sub-cta" data-i18n="hero.subCta">Compatible con Google Meet, YouTube y
+                        Micrófono.</span>
+                </div>
+                <div class="social-proof-hero">
+                    <div class="avatars">
+                        <span class="avatar">👨‍💻</span>
+                        <span class="avatar">👩‍🎓</span>
+                        <span class="avatar">👩‍🏫</span>
+                    </div>
+                    <p data-i18n-html="hero.socialProof">Elegido por <strong>+10,000 estudiantes y
+                            profesionales</strong>.</p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="glass-card-hero">
+                    <img src="assets/hero-mockup.png" data-i18n-attr="alt" data-i18n-alt="hero.imgAlt"
+                        alt="Interfaz de VoiceScribe mostrando transcripción en vivo y resumen IA" class="app-preview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Agitation (Modo Sidebar) -->
+    <section class="section-problem">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-text">
+                    <h2 data-i18n="problem.title">🚀 Toma notas automáticas sin interrupciones</h2>
+                    <p data-i18n-html="problem.text">¿Harto de perder detalles en tus videollamadas? Con nuestro
+                        <strong>Modo Sidebar fijo</strong>, VoiceScribe transcribe tus reuniones de trabajo o clases
+                        online mientras tú sigues navegando.
+                    </p>
+                    <a href="#" class="link-arrow"><span data-i18n="problem.link">Ver función de Notas Flotantes</span>
+                        <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="problem-visual">
+                    <div class="feature-card glass-card">
+                        <i class="ri-layout-right-2-fill icon-glow"></i>
+                        <h3 data-i18n="problem.cardTitle">Sidebar Multitarea</h3>
+                        <p data-i18n="problem.cardText">Tu asistente de notas personal, siempre visible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section-features">
+        <div class="container">
+            <div class="grid-3">
+                <!-- Feature 1 -->
+                <div class="feature-box glass-card">
+                    <i class="ri-translate-2 text-gradient"></i>
+                    <h3 data-i18n="features.f1Title">12 Idiomas Soportados</h3>
+                    <p data-i18n="features.f1Text">Transcribe audio a texto en Español, Inglés, Francés, Japonés y más.
+                        Precisión nativa del 99%.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-box glass-card">
+                    <i class="ri-openai-fill text-gradient"></i>
+                    <h3 data-i18n="features.f2Title">Resúmenes con Chat GPT-4o</h3>
+                    <p data-i18n="features.f2Text">Convierte 1 hora de grabación en un resumen de 5 minutos. Ideal para
+                        estudiantes y actas de reuniones.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-box glass-card">
+                    <i class="ri-shield-keyhole-fill text-gradient"></i>
+                    <h3 data-i18n="features.f3Title">100% Privado y Seguro</h3>
+                    <p data-i18n="features.f3Text">Tus datos se guardan localmente. Sin envíos a servidores externos. Tu
+                        privacidad es nuestra prioridad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-testimonials">
+        <div class="container">
+            <h2 class="text-center" data-i18n="testimonials.title">Lo que dicen nuestros usuarios</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-card">
+                    <p data-i18n="testimonials.t1Quote">"Pensé que sería complicado, pero el Modo Sidebar es lo que
+                        siempre necesité. Ya no pierdo el hilo en mis reuniones."</p>
+                    <div class="author">
+                        <strong data-i18n="testimonials.t1Name">Ana M.</strong>
+                        <span data-i18n="testimonials.t1Role">Project Manager</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <p data-i18n="testimonials.t2Quote">"La mejor extensión para tomar apuntes de mis clases online. El
+                        resumen automático es magia."</p>
+                    <div class="author">
+                        <strong data-i18n="testimonials.t2Name">Carlos R.</strong>
+                        <span data-i18n="testimonials.t2Role">Estudiante de Medicina</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Free Access -->
+    <section class="section-pricing">
+        <div class="container">
+            <h2 class="text-center" data-i18n="pricing.title">¡Oferta de Lanzamiento!</h2>
+            <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 600px;">
+                <!-- Single Free Plan -->
+                <div class="pricing-card glass-card popular">
+                    <div class="badge-pop" data-i18n="pricing.badge">GRATIS POR TIEMPO LIMITADO</div>
+                    <h3 data-i18n="pricing.planName">Acceso Total</h3>
+                    <div class="price"><span data-i18n="pricing.price">$0</span><span
+                            data-i18n="pricing.pricePeriod">/mes</span></div>
+                    <p class="pricing-sub" data-i18n="pricing.planDesc">Disfruta de todas las funciones PRO sin coste.
+                    </p>
+                    <ul>
+                        <li><i class="ri-check-line"></i> <span data-i18n="pricing.item1">Transcripción Ilimitada</span>
+                        </li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="pricing.item2">12 Idiomas Nativos</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="pricing.item3">Modos Popup y Sidebar</span>
+                        </li>
+                        <li><i class="ri-magic-line"></i> <strong><span data-i18n="pricing.item4">Resúmenes IA
+                                    Ilimitados</span></strong></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="pricing.item5">Exportación y Privacidad
+                                Total</span></li>
+                    </ul>
+                    <a href="https://chromewebstore.google.com/detail/voice-transcription-+-ai/pcklabcphhbkoghekdbpcplmjbdkfnbi"
+                        target="_blank" class="btn-primary-lg" style="width: 100%;" data-i18n="pricing.cta">Obtener Todo
+                        Gratis
+                        Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-cta">
+        <div class="container cta-box glass-card-glow">
+            <h2 data-i18n="finalCta.title">Aprovecha el Acceso Gratuito Hoy</h2>
+            <p data-i18n="finalCta.text">No sabemos por cuánto tiempo mantendremos esta oferta. Asegura tu acceso ahora.
+            </p>
+            <a href="https://chromewebstore.google.com/detail/voice-transcription-+-ai/pcklabcphhbkoghekdbpcplmjbdkfnbi"
+                target="_blank" class="btn-primary-lg">
+                <i class="ri-chrome-fill"></i> <span data-i18n="finalCta.cta">Instalar Extensión Gratis</span>
+            </a>
+            <p class="small-note" data-i18n="finalCta.note">Compatible con Chrome, Brave y Edge.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-faq" id="faq">
+        <div class="container">
+            <h2 class="text-center" data-i18n="faq.title">Preguntas Frecuentes sobre Transcripción de Voz</h2>
+            <div class="faq-grid">
+                <!-- Item 1 -->
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q1">¿Cuánto cuesta VoiceScribe?</span>
+                        <i class="ri-add-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n-html="faq.a1">Actualmente, <strong>VoiceScribe es 100% GRATUITO</strong> por tiempo
+                            limitado. Queremos que pruebes la herramienta sin barreras. Eventualmente introduciremos
+                            planes de pago, pero si te unes ahora, podrás disfrutar de todo sin costo.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q2">¿Qué tan precisa es la transcripción?</span>
+                        <i class="ri-add-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n-html="faq.a2">Utilizamos la tecnología Web Speech API avanzada, logrando una
+                            precisión superior al <strong>95%</strong> en condiciones de audio claras. Funciona mejor
+                            con un buen micrófono y ruido de fondo moderado.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q3">¿Funciona con Zoom, Google Meet o YouTube?</span>
+                        <i class="ri-add-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n-html="faq.a3">Sí. VoiceScribe captura el audio de tu micrófono. Si usas altavoces,
+                            capturará el audio de tus reuniones o videos. Para mejores resultados en reuniones, usa el
+                            modo "Stereo Mix" de tu sistema si está disponible.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q4">¿Mis datos están seguros?</span>
+                        <i class="ri-add-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n-html="faq.a4">Absolutamente. <strong>La privacidad es nuestra prioridad.</strong>
+                            Las transcripciones se procesan localmente en tu navegador. Solo enviamos texto a OpenAI
+                            cuando solicitas un resumen explícitamente, y no se guardan en nuestros servidores.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q5">¿Necesito mi propia clave de OpenAI?</span>
+                        <i class="ri-add-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n-html="faq.a5">No. Al ser gratuito, puedes usar nuestra IA directamente. Si
+                            prefieres usar tu propia clave API para mayor control, ofrecemos esa opción en la
+                            configuración.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section-support" id="support">
+        <div class="container">
+            <h2 class="text-center" data-i18n="support.title">Soporte y Ayuda</h2>
+            <div class="support-box glass-card-glow">
+                <div class="support-content">
+                    <div class="quick-fixes">
+                        <h3><i class="ri-tools-fill"></i> <span data-i18n="support.quickFixTitle">Soluciones
+                                Rápidas</span></h3>
+                        <ul>
+                            <li>
+                                <strong data-i18n="support.fix1Label">Permisos de Micrófono:</strong>
+                                <span data-i18n="support.fix1Text">Asegúrate de permitir el acceso en</span>
+                                <code>chrome://settings/content/microphone</code>
+                            </li>
+                            <li>
+                                <strong data-i18n="support.fix2Label">Sin conexión:</strong>
+                                <span data-i18n="support.fix2Text">Verifica tu internet. La transcripción requiere
+                                    conexión para la máxima precisión.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-info">
+                        <h3><i class="ri-mail-send-fill"></i> <span data-i18n="support.contactTitle">Contacto
+                                Directo</span></h3>
+                        <p data-i18n="support.contactText">¿Tienes algún problema específico o sugerencia?</p>
+                        <a href="mailto:jonastantra@gmail.com" class="btn-secondary">
+                            jonastantra@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p data-i18n="footer.copy">&copy; 2026 VoiceScribe. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#" data-i18n="footer.privacy">Privacidad</a>
+                <a href="#" data-i18n="footer.contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
