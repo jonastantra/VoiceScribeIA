@@ -280,16 +280,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let currentLang = 'es';
+    let currentLang = 'en';
 
     function detectBrowserLanguage() {
         const saved = localStorage.getItem('voicescribe-lang');
         if (saved && ['es', 'en', 'zh'].includes(saved)) return saved;
 
-        const browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+        const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
         if (browserLang.startsWith('zh')) return 'zh';
-        if (browserLang.startsWith('en')) return 'en';
-        return 'es';
+        if (browserLang.startsWith('es')) return 'es';
+        return 'en';
     }
 
     function getNestedValue(obj, path) {
