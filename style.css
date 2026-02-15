@@ -1,19 +1,118 @@
 /* Variables & Reset */
 :root {
-    --bg-color: #0d0d12;
-    --text-color: #e0e0e0;
+    /* Light Theme (Default) */
+    --bg-color: #ffffff;
+    --bg-secondary: #f5f6fa;
+    --text-color: #1a1a2e;
+    --text-secondary: #555;
+    --text-muted: #666;
+
+    /* Glass Effect Variables - Light */
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-bg-hover: rgba(0, 0, 0, 0.06);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-border-hover: rgba(0, 0, 0, 0.15);
+
+    /* Header & UI Elements */
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --button-text-color: white;
+    --card-glow: 0 8px 32px 0 rgba(106, 17, 203, 0.1);
+
+    /* Text Gradients & Colors */
+    --heading-gradient: linear-gradient(135deg, #1a1a2e 0%, #4a4a6a 100%);
     --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     --secondary-gradient: linear-gradient(135deg, #ff00cc 0%, #333399 100%);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --card-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    /* Specific Elements */
+    --faq-bg: rgba(0, 0, 0, 0.03);
+    --faq-text: #444;
+    --avatar-bg: #f0f0f0;
+    --avatar-border: #ffffff;
+    --code-bg: rgba(37, 117, 252, 0.1);
+
+    /* Language Switcher & Toggle */
+    --control-bg: rgba(0, 0, 0, 0.05);
+    --control-border: rgba(0, 0, 0, 0.1);
+    --control-hover: rgba(0, 0, 0, 0.08);
+    --control-active: rgba(0, 0, 0, 0.15);
+
     --font-main: 'Inter', sans-serif;
+
+    /* Hero Glow */
+    --hero-glow-opacity: 0.08;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0d0d12;
+    --bg-secondary: #16161d;
+    --text-color: #e0e0e0;
+    --text-secondary: #aaa;
+    --text-muted: #888;
+
+    /* Glass Effect Variables - Dark */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-hover: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border-hover: rgba(255, 255, 255, 0.2);
+
+    /* Header & UI Elements */
+    --header-bg: rgba(13, 13, 18, 0.7);
+    --button-text-color: white;
+    --card-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    /* Text Gradients & Colors */
+    --heading-gradient: linear-gradient(to right, #fff, #aaa);
+
+    /* Specific Elements */
+    --faq-bg: rgba(0, 0, 0, 0.2);
+    --faq-text: #ccc;
+    --avatar-bg: #222;
+    --avatar-border: #0d0d12;
+    --code-bg: rgba(37, 117, 252, 0.2);
+
+    /* Language Switcher & Toggle */
+    --control-bg: rgba(255, 255, 255, 0.05);
+    --control-border: rgba(255, 255, 255, 0.1);
+    --control-hover: rgba(255, 255, 255, 0.08);
+    --control-active: rgba(255, 255, 255, 0.12);
+
+    /* Hero Glow */
+    --hero-glow-opacity: 0.15;
+}
+
+/* System Preference Automatic Detection */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-color: #0d0d12;
+        --bg-secondary: #16161d;
+        --text-color: #e0e0e0;
+        --text-secondary: #aaa;
+        --text-muted: #888;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-bg-hover: rgba(255, 255, 255, 0.07);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --glass-border-hover: rgba(255, 255, 255, 0.2);
+        --header-bg: rgba(13, 13, 18, 0.7);
+        --heading-gradient: linear-gradient(to right, #fff, #aaa);
+        --card-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        --faq-bg: rgba(0, 0, 0, 0.2);
+        --faq-text: #ccc;
+        --avatar-bg: #222;
+        --avatar-border: #0d0d12;
+        --code-bg: rgba(37, 117, 252, 0.2);
+        --control-bg: rgba(255, 255, 255, 0.05);
+        --control-border: rgba(255, 255, 255, 0.1);
+        --control-hover: rgba(255, 255, 255, 0.08);
+        --control-active: rgba(255, 255, 255, 0.12);
+        --hero-glow-opacity: 0.15;
+    }
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -108,10 +207,11 @@ ul {
     left: 0;
     width: 100%;
     padding: 15px 0;
-    background: rgba(13, 13, 18, 0.7);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
     z-index: 1000;
+    transition: background 0.3s ease;
 }
 
 .nav-container {
@@ -138,12 +238,34 @@ ul {
     -webkit-text-fill-color: transparent;
 }
 
+/* Theme Toggle */
+.theme-toggle {
+    background: var(--control-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 9px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-right: 5px;
+}
+
+.theme-toggle:hover {
+    background: var(--control-hover);
+    transform: rotate(15deg);
+}
+
 /* Language Switcher */
 .lang-switcher {
     display: flex;
     gap: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
+    background: var(--control-bg);
+    border: 1px solid var(--control-border);
     border-radius: 12px;
     padding: 3px;
 }
@@ -157,18 +279,18 @@ ul {
     cursor: pointer;
     transition: all 0.3s ease;
     line-height: 1;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .lang-btn:hover {
-    opacity: 0.8;
-    background: rgba(255, 255, 255, 0.08);
+    opacity: 0.9;
+    background: var(--control-hover);
 }
 
 .lang-btn.active {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+    background: var(--control-active);
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.2);
 }
 
 /* Hero Section */
@@ -187,7 +309,7 @@ ul {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(106, 17, 203, 0.15) 0%, rgba(13, 13, 18, 0) 70%);
+    background: radial-gradient(circle, rgba(106, 17, 203, var(--hero-glow-opacity)) 0%, rgba(13, 13, 18, 0) 70%);
     z-index: -1;
     animation: rotate 20s linear infinite;
 }
@@ -212,8 +334,8 @@ ul {
 .badge-new {
     display: inline-block;
     padding: 5px 15px;
-    background: rgba(37, 117, 252, 0.2);
-    border: 1px solid rgba(37, 117, 252, 0.5);
+    background: rgba(37, 117, 252, 0.15);
+    border: 1px solid rgba(37, 117, 252, 0.4);
     border-radius: 20px;
     font-size: 0.85rem;
     color: #2575fc;
@@ -224,7 +346,7 @@ ul {
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #fff, #aaa);
+    background: var(--heading-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -232,7 +354,7 @@ ul {
 
 .hero p {
     font-size: 1.1rem;
-    color: #aaa;
+    color: var(--text-secondary);
     margin-bottom: 30px;
 }
 
@@ -245,7 +367,7 @@ ul {
 
 .sub-cta {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--text-muted);
     margin-left: 10px;
 }
 
@@ -258,9 +380,9 @@ ul {
 .avatars .avatar {
     font-size: 1.5rem;
     margin-right: -10px;
-    border: 2px solid var(--bg-color);
+    border: 2px solid var(--avatar-border);
     border-radius: 50%;
-    background: #222;
+    background: var(--avatar-bg);
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -301,11 +423,12 @@ section {
 h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
+    color: var(--text-color);
 }
 
 /* Glass Cards */
 .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
@@ -315,8 +438,8 @@ h2 {
 
 .glass-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
 }
 
 /* Problem Section */
@@ -339,7 +462,7 @@ h2 {
 .icon-glow {
     font-size: 2rem;
     color: #2575fc;
-    text-shadow: 0 0 20px rgba(37, 117, 252, 0.5);
+    text-shadow: 0 0 20px rgba(37, 117, 252, 0.4);
     margin-bottom: 15px;
 }
 
@@ -356,6 +479,15 @@ h2 {
     display: block;
 }
 
+.feature-box h3,
+.feature-box p {
+    color: var(--text-color);
+}
+
+.feature-box p {
+    color: var(--text-secondary);
+}
+
 /* Testimonials */
 .testimonials-grid {
     display: grid;
@@ -370,12 +502,12 @@ h2 {
 }
 
 .author strong {
-    color: white;
+    color: var(--text-color);
 }
 
 .author span {
     font-size: 0.9rem;
-    color: #888;
+    color: var(--text-muted);
 }
 
 /* Pricing */
@@ -407,17 +539,19 @@ h2 {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+    color: white;
 }
 
 .price {
     font-size: 3rem;
     font-weight: 800;
     margin: 20px 0;
+    color: var(--text-color);
 }
 
 .price span {
     font-size: 1rem;
-    color: #888;
+    color: var(--text-muted);
     font-weight: 400;
 }
 
@@ -430,13 +564,14 @@ h2 {
     margin-bottom: 10px;
     display: flex;
     gap: 10px;
+    color: var(--text-color);
 }
 
 /* CTA Section */
 .glass-card-glow {
-    background: linear-gradient(135deg, rgba(106, 17, 203, 0.2) 0%, rgba(37, 117, 252, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.1) 100%);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 60px;
     text-align: center;
@@ -449,6 +584,7 @@ h2 {
 .glass-card-glow p {
     margin-bottom: 40px;
     font-size: 1.2rem;
+    color: var(--text-color);
 }
 
 /* Footer */
@@ -456,7 +592,7 @@ footer {
     padding: 40px 0;
     border-top: 1px solid var(--glass-border);
     margin-top: 50px;
-    color: #666;
+    color: var(--text-muted);
 }
 
 .footer-content {
@@ -509,7 +645,6 @@ footer {
 
 .faq-item {
     padding: 0;
-    /* Override default glass-card padding */
     overflow: hidden;
     cursor: pointer;
 }
@@ -542,12 +677,12 @@ footer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--faq-bg);
 }
 
 .faq-answer p {
     padding: 20px;
-    color: #ccc;
+    color: var(--faq-text);
     font-size: 0.95rem;
 }
 
@@ -571,11 +706,12 @@ footer {
 }
 
 .quick-fixes code {
-    background: rgba(37, 117, 252, 0.2);
+    background: var(--code-bg);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.9rem;
     font-family: monospace;
+    color: #2575fc;
 }
 
 .contact-info {

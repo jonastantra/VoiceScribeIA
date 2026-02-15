@@ -448,5 +448,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ===== Theme Switcher Logic =====
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    function getPreferredTheme() {
+        const savedTheme = localStorage.getItem('voicescribe-theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('voicescribe-theme', theme);
+
+        // Update icon
+        if (theme === 'dark') {
+            themeIcon.classList.remove('ri-moon-line');
+            themeIcon.classList.add('ri-sun-line');
+        } else {
+            themeIcon.classList.remove('ri-sun-line');
+            themeIcon.classList.add('ri-moon-line');
+        }
+    }
+
+    // Initialize theme
+    const initialTheme = getPreferredTheme();
+    setTheme(initialTheme);
+
+    // Toggle event
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    });
+
+    // Listen for system changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('voicescribe-theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
     console.log('VoiceScribe Landing Page Loaded');
 });
