@@ -286,9 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const saved = localStorage.getItem('voicescribe-lang');
         if (saved && ['es', 'en', 'zh'].includes(saved)) return saved;
 
-        const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-        if (browserLang.startsWith('zh')) return 'zh';
-        if (browserLang.startsWith('es')) return 'es';
         return 'en';
     }
 
