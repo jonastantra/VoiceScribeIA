@@ -450,27 +450,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== Theme Switcher Logic =====
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
     function getPreferredTheme() {
-        const savedTheme = localStorage.getItem('voicescribe-theme');
-        if (savedTheme) {
-            return savedTheme;
+        try {
+            const savedTheme = localStorage.getItem('voicescribe-theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+        } catch (e) {
+            console.warn('LocalStorage access denied or failed', e);
         }
         return 'light';
     }
 
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('voicescribe-theme', theme);
+        try {
+            localStorage.setItem('voicescribe-theme', theme);
+        } catch (e) {
+            console.warn('Unable to save theme to LocalStorage', e);
+        }
 
-        // Update icon
-        if (theme === 'dark') {
-            themeIcon.classList.remove('ri-moon-line');
-            themeIcon.classList.add('ri-sun-line');
-        } else {
-            themeIcon.classList.remove('ri-sun-line');
-            themeIcon.classList.add('ri-moon-line');
+        // Update icon if it exists
+        if (themeIcon) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('ri-moon-line');
+                themeIcon.classList.add('ri-sun-line');
+            } else {
+                themeIcon.classList.remove('ri-sun-line');
+                themeIcon.classList.add('ri-moon-line');
+            }
         }
     }
 
