@@ -42,7 +42,7 @@
     --hero-glow-opacity: 0.08;
 }
 
-[data-theme="dark"] {
+:root[data-theme="dark"] {
     --bg-color: #0d0d12;
     --bg-secondary: #16161d;
     --text-color: #e0e0e0;
@@ -80,33 +80,7 @@
     --hero-glow-opacity: 0.15;
 }
 
-/* System Preference Automatic Detection */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --bg-color: #0d0d12;
-        --bg-secondary: #16161d;
-        --text-color: #e0e0e0;
-        --text-secondary: #aaa;
-        --text-muted: #888;
-        --glass-bg: rgba(255, 255, 255, 0.05);
-        --glass-bg-hover: rgba(255, 255, 255, 0.07);
-        --glass-border: rgba(255, 255, 255, 0.1);
-        --glass-border-hover: rgba(255, 255, 255, 0.2);
-        --header-bg: rgba(13, 13, 18, 0.7);
-        --heading-gradient: linear-gradient(to right, #fff, #aaa);
-        --card-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        --faq-bg: rgba(0, 0, 0, 0.2);
-        --faq-text: #ccc;
-        --avatar-bg: #222;
-        --avatar-border: #0d0d12;
-        --code-bg: rgba(37, 117, 252, 0.2);
-        --control-bg: rgba(255, 255, 255, 0.05);
-        --control-border: rgba(255, 255, 255, 0.1);
-        --control-hover: rgba(255, 255, 255, 0.08);
-        --control-active: rgba(255, 255, 255, 0.12);
-        --hero-glow-opacity: 0.15;
-    }
-}
+/* System Preference Automatic Detection Removed to force Light Mode default */
 
 * {
     margin: 0;

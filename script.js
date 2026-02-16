@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savedTheme) {
             return savedTheme;
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return 'light';
     }
 
     function setTheme(theme) {
@@ -479,18 +479,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(initialTheme);
 
     // Toggle event
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            console.log('Theme toggle clicked');
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    } else {
+        console.error('Theme toggle element not found');
+    }
 
-    // Listen for system changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (!localStorage.getItem('voicescribe-theme')) {
-            setTheme(e.matches ? 'dark' : 'light');
-        }
-    });
+
 
     console.log('VoiceScribe Landing Page Loaded');
 });
